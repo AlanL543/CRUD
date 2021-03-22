@@ -9,6 +9,7 @@ $nom = '';
 $type = '';
 $adressemail = '';
 $siegesocial = '';
+$idutil = $_POST['Identifiant'];
 
 function nouvorga () {
   if(isset($_POST['save'])){
@@ -31,7 +32,7 @@ function modiforga(){
   //if(isset($_GET['Delete']))
 //}
   function nouvutil () {
-    if(isset($idutil = $_POST['Identifiant'])){
+    if(isset($_POST['Identifiant'])){
       $mdputil = $_POST['Mdp'];
       //$numtelephone = $_POST['Numtelephone'];
       $emailutil = $_POST['emailutil'];
@@ -40,14 +41,14 @@ function modiforga(){
     }
   }
     function modifutil () {
-      if(isset($update = $_POST['update'])){
+      if(isset($_POST['update'])){
         $idutil = $_POST['Identifiant'];
         $mdputil = $_POST['Mdp'];
         $mysqli->query("UPDATE organization SET id='$idutil', password='$mdputil', email='$emailutil' WHERE id='$idutil' AND password='$mdputil'") or die($mysqli->error());
       }
     }
     function supprutil () {
-      if(isset($idutil = $_GET['Delete'])){
+      if(isset($_GET['Delete'])){
         $idutil = $_GET['Delete'];
       }
       $mysqli->query("DELETE FROM organization WHERE id='$idutil'") or die ($mysqli->error());
